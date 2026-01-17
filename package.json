@@ -1,0 +1,18 @@
+{
+  "name": "shoppinglist",
+  "version": "1.0.0",
+  "description": "This is an example project.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "typescript-eslint": "^8.53.0"
+  }
+}
