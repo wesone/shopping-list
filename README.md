@@ -12,6 +12,7 @@ It's `React` frontend uses `Next.js`, the component library `MUI` and `SWR` for 
 
 ## Setup
 
+- Install dependencies (`npm ci`) inside the backend folder and the frontend folder
 - Run `docker compose up` to start Docker services for backend, frontend and the MongoDB
 - Open http://localhost:3000 in the browser to view the frontend
 
