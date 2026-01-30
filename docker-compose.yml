@@ -1,0 +1,41 @@
+services:
+  backend:
+    image: node:24.13.0
+    ports:
+      - 8080:8080
+    volumes:
+      - ./backend:/usr/src/app
+    working_dir: /usr/src/app
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - MONGO_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/shoppinglist?authSource=admin
+      - PORT=8080
+    command: "npm start"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+
+  frontend:
+    image: node:24.13.0
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/usr/src/app
+    working_dir: /usr/src/app
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8080
+    command: "npm run dev"
+    depends_on:
+      - backend
